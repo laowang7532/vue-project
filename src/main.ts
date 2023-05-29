@@ -34,3 +34,18 @@ app.mount('#app')
 // app1.mount('#app1')
 // app2.mount('#app2')
 
+// 4.安装一个插件
+// app.use(MyPlugin)
+// 第一个参数插件本身 可选的第二个参数是要传递给插件的选项
+// app.use(MyPlugin, { someOption: true })
+// 如何编写一个插件 https://cn.vuejs.org/guide/reusability/plugins.html 暂时先知道了解
+
+
+/**
+ *  5.app.provide()
+ *  提供一个值，可以在应用中的所有后代组件中注入使用
+ *  第一个参数应当是注入的 key，第二个参数则是提供的值。返回应用实例本身。
+ */
+// app.provide('globalProperty', 'globalProperty')
+
+// TODO:明天查看依赖注入 应用层 app.runWithContext()

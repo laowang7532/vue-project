@@ -3,3 +3,5 @@
 ## 2023年05月25日
 进度：   1.创建一个 Vue 应用 （100%） 
         2.应用实例 浏览 ———— https://cn.vuejs.org/api/application.html#app-use
+## 2023年05月29日
+进度：   2.应用实例 浏览 ———— https://cn.vuejs.org/api/application.html#app-provide
