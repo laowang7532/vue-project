@@ -3,7 +3,7 @@ import './assets/main.css'
  *  文档地址：https://cn.vuejs.org/guide/essentials/application.html
  *  引入创建应用实例的方法 createApp 
  * */ 
-import { createApp } from 'vue'
+import { createApp, inject } from 'vue'
 // 引入根组件
 import App from './App.vue'
 import HelloWorldVue from './components/HelloWorld.vue'
@@ -46,6 +46,19 @@ app.mount('#app')
  *  提供一个值，可以在应用中的所有后代组件中注入使用
  *  第一个参数应当是注入的 key，第二个参数则是提供的值。返回应用实例本身。
  */
-// app.provide('globalProperty', 'globalProperty')
+// 应用层
+app.provide('globalProperty', 'globalProperty')
 
-// TODO:明天查看依赖注入 应用层 app.runWithContext()
+//  app.runWithContext()  
+// 在应用层面上 使用当前应用作为注入上下文执行回调函数
+const edit_info = app.runWithContext(()=>{
+    return inject('globalProperty')
+})
+console.log("🚀 ~ file: main.ts:55 ~ constedit_info=app.runWithContext ~ edit_info:", edit_info)
+
+// 6.app.version  获取使用vue的版本号
+const version = app.version
+console.log("🚀 ~ file: main.ts:61 ~ version:", version)
+
+// 7. app.config  等等一系列的相关config 配置
+console.log(app.config)

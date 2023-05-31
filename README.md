@@ -5,3 +5,6 @@
         2.应用实例 浏览 ———— https://cn.vuejs.org/api/application.html#app-use
 ## 2023年05月29日
 进度：   2.应用实例 浏览 ———— https://cn.vuejs.org/api/application.html#app-provide
+
+## 2023年05月31日
+进度：   3.模板语法 浏览 ———— https://cn.vuejs.org/guide/essentials/template-syntax.html#template-syntax
