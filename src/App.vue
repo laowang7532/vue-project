@@ -10,10 +10,14 @@
   <main>
     <TheWelcome />
   </main>
+  <Mustache />
+  <ResponsiveFoundation />
 </template>
 
 <script setup lang="ts">
 import TheWelcome from './components/TheWelcome.vue'
+import Mustache from './pages/Mustache.vue'
+import ResponsiveFoundation from './pages/responsiveFoundation.vue'
 import { provide, ref } from 'vue'
 import { mySymbol } from '@/units/symbolKeys';
 /**

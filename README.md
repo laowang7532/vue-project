@@ -8,3 +8,7 @@
 
 ## 2023年05月31日
 进度：   3.模板语法 浏览 ———— https://cn.vuejs.org/guide/essentials/template-syntax.html#template-syntax
+
+
+## 2023年6月9日
+进度：4.响应式 https://cn.vuejs.org/guide/essentials/reactivity-fundamentals.html#declaring-reactive-state
