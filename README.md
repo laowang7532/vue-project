@@ -12,3 +12,8 @@
 
 ## 2023年6月9日
 进度：4.响应式 https://cn.vuejs.org/guide/essentials/reactivity-fundamentals.html#declaring-reactive-state
+
+## 2023年6月13日
+进度：5.响应式的解包 https://cn.vuejs.org/guide/essentials/reactivity-fundamentals.html#ref-unwrapping-in-templates
+
+组合式的延伸阅读 https://cn.vuejs.org/guide/reusability/composables.html#further-reading
