@@ -1,14 +1,16 @@
-import './assets/main.css'
 /**
  *  文档地址：https://cn.vuejs.org/guide/essentials/application.html
  *  引入创建应用实例的方法 createApp 
  * */ 
 import { createApp, inject } from 'vue'
+
 // 引入根组件
 import App from './App.vue'
 import HelloWorldVue from './components/HelloWorld.vue'
 
-
+import 'uno.css'
+// 自定义样式
+import './styles/index.scss'
 // 1. 创建应用实例
 const app = createApp(App)
 
@@ -20,12 +22,6 @@ app.config.errorHandler = (err, vm, info) => {
 
 // 提供注册全局组件 这样全局注册就不需要在任何地方引入了 可以直接在组件中使用
 app.component('HelloWorld', HelloWorldVue)
-
-
-// 2. 挂载 确保在挂载之前完成所有的组件注册及配置
-app.mount('#app')
-// 简写
-// createApp(App).mount('#app')
 
 
 // 3. 多个应用实例 不是很常见 但是要了解
@@ -54,11 +50,19 @@ app.provide('globalProperty', 'globalProperty')
 const edit_info = app.runWithContext(()=>{
     return inject('globalProperty')
 })
-console.log("🚀 ~ file: main.ts:55 ~ constedit_info=app.runWithContext ~ edit_info:", edit_info)
 
 // 6.app.version  获取使用vue的版本号
 const version = app.version
-console.log("🚀 ~ file: main.ts:61 ~ version:", version)
 
 // 7. app.config  等等一系列的相关config 配置
-console.log(app.config)
+// console.log(app.config)
+
+
+import { router } from "@/router/route";
+// 2. 注册路由
+app.use(router)
+
+// 挂载 确保在挂载之前完成所有的组件注册及配置
+app.mount('#app')
+// 简写
+// createApp(App).mount('#app')

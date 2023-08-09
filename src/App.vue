@@ -1,31 +1,19 @@
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
-  <Mustache />
-  <ResponsiveFoundation />
+    <Header />
+    <router-view></router-view>
 </template>
 
 <script setup lang="ts">
-import TheWelcome from './components/TheWelcome.vue'
-import Mustache from './pages/Mustache.vue'
-import ResponsiveFoundation from './pages/responsiveFoundation.vue'
 import { provide, ref } from 'vue'
 import { mySymbol } from '@/units/symbolKeys';
+import Header from '@/layout/header.vue'
+
 /**
  * 如果不是setup 语法糖的话  要确保在setup同步执行
  */
 const msg = ref('Hello World!')
-function msgAdd() {
-  msg.value = 'Hello Evolve H!'
+function msgAdd(e:any) {
+  msg.value = e
 }
 /**
  * 可以注入响应式的数据
@@ -39,30 +27,11 @@ provide(mySymbol,'this is a Symbol Provide')
 </script>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
 .logo {
   display: block;
-  margin: 0 auto 2rem;
+  margin: 0 auto;
 }
 
 @media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
 }
 </style>
