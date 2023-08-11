@@ -62,6 +62,9 @@ import { router } from "@/router/route";
 // 2. 注册路由
 app.use(router)
 
+// 主题背景
+// import '@/units/bg/canvasNest';
+
 // 挂载 确保在挂载之前完成所有的组件注册及配置
 app.mount('#app')
 // 简写

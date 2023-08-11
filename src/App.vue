@@ -1,18 +1,20 @@
 <template>
-    <Header />
-    <router-view></router-view>
+  <Header />
+  <router-view></router-view>
+  <starrySky class="skyBg"></starrySky>
 </template>
 
 <script setup lang="ts">
 import { provide, ref } from 'vue'
-import { mySymbol } from '@/units/symbolKeys';
+import { mySymbol } from '@/units/symbolKeys'
 import Header from '@/layout/header.vue'
+import starrySky from '@/components/background/starrySky.vue'
 
 /**
  * 如果不是setup 语法糖的话  要确保在setup同步执行
  */
 const msg = ref('Hello World!')
-function msgAdd(e:any) {
+function msgAdd(e: any) {
   msg.value = e
 }
 /**
@@ -23,7 +25,7 @@ function msgAdd(e:any) {
  */
 provide('message', { msg, msgAdd })
 
-provide(mySymbol,'this is a Symbol Provide')
+provide(mySymbol, 'this is a Symbol Provide')
 </script>
 
 <style scoped>
@@ -31,7 +33,14 @@ provide(mySymbol,'this is a Symbol Provide')
   display: block;
   margin: 0 auto;
 }
-
+.skyBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
 @media (min-width: 1024px) {
 }
 </style>
