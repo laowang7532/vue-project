@@ -1,5 +1,5 @@
 <template>
-  <canvas id="starBg"></canvas>
+    <canvas id="starBg"></canvas>
 </template>
 <script setup>
 import { onMounted } from 'vue'

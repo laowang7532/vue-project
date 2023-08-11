@@ -1,5 +1,5 @@
 <template>
-  <div class="text-black">vue3</div>
+  <div class="text-white">vue3</div>
 </template>
 
 <script setup lang="ts">

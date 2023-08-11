@@ -65,6 +65,9 @@ app.use(router)
 // 主题背景
 // import '@/units/bg/canvasNest';
 
+// 点击效果
+import '@/units/click/vsClick';
+
 // 挂载 确保在挂载之前完成所有的组件注册及配置
 app.mount('#app')
 // 简写

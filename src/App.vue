@@ -2,6 +2,7 @@
   <Header />
   <router-view></router-view>
   <starrySky class="skyBg"></starrySky>
+  <musicPlayer />
 </template>
 
 <script setup lang="ts">
@@ -9,6 +10,7 @@ import { provide, ref } from 'vue'
 import { mySymbol } from '@/units/symbolKeys'
 import Header from '@/layout/header.vue'
 import starrySky from '@/components/background/starrySky.vue'
+import musicPlayer from '@/components/MusicPlayer/musicPlayer.vue'
 
 /**
  * 如果不是setup 语法糖的话  要确保在setup同步执行
