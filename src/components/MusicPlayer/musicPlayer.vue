@@ -18,6 +18,7 @@ onMounted(() => {
   document.getElementById('musicPlayerBox')!.addEventListener('click', initMusicPlayer)
   document.getElementById('musicPlayerBox')!.click()
 })
+
 onBeforeUnmount(() => {
   if (sound.value) {
     sound.value.pause()
