@@ -3,9 +3,20 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted ,shallowRef,onBeforeUnmount} from 'vue';
+import { onMounted ,shallowRef,onBeforeUnmount, watch} from 'vue';
+import { useDocumentVisibility } from '@vueuse/core'
 
 const sound = shallowRef<null|HTMLAudioElement>(null)
+
+// 标签页面是否被激活
+const visibility = useDocumentVisibility()
+watch(visibility, (val) => {
+  if (val === 'hidden') {
+    sound.value?.pause()
+  } else {
+    sound.value?.play()
+  }
+})
 
 function initMusicPlayer() {
   sound.value = new Audio('timeTravel.mp3')
