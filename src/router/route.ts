@@ -1,11 +1,13 @@
 import * as VueRouter from 'vue-router'
 
 import Home from '@/pages/home/index.vue'
-import Mustache from '@/pages/management/Mustache.vue'
+import Demos from '@/pages/demos/demos.vue'
+import EchartToMap from '@/pages/demos/components/echartToMap/echartToMap.vue'
 
 const routes = [
   { path: '/', component:()=> Home },
-  { path: '/Mustache', component: ()=> Mustache },
+  { path: '/demos', component: ()=> Demos },
+  { path: '/echartToMap', component: ()=> EchartToMap },
 ]
 
 // 3. 创建路由实例并传递 `routes` 配置

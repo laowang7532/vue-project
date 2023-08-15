@@ -19,8 +19,8 @@ const router = useRouter()
 
 const navList =[
   {name:'me', path:'/'},
-  {name:'demos', path:'/demo'},
-  {name:'docs', path:'/doc'},
+  {name:'demos', path:'/demos'},
+  {name:'docs', path:'/docs'},
   {name:'github', path:'https://github.com/laowang7532', icon:gitHubIcon}
 ]
 
