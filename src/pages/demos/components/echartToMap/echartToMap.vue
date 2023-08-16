@@ -2,7 +2,13 @@
   <div class="text-center">
     <h1>自定义区域地图Echart图</h1>
     <div class="flex-center">
-      <div class="cursor-pointer locationItem" v-for="item in locationList" :key="item.name" @click="selectLocalFn(item)" >
+      <div
+        class="cursor-pointer locationItem"
+        v-for="item in locationList"
+        :class="location === item.value ? 'active' : ''"
+        :key="item.name"
+        @click="selectLocalFn(item)"
+      >
         {{ item.name }}
       </div>
     </div>
@@ -10,11 +16,11 @@
   <Echart :option="option"></Echart>
 </template>
 
-<script setup lang='ts'>
-import { ref, computed,onMounted } from "vue";
+<script setup lang="ts">
+import { ref, computed, onMounted } from 'vue'
 import Echart from '@/components/Echart/Echart.vue'
 import * as echarts from 'echarts'
-import {Qingdao,Weifang,Dezhou,Yantai} from './mapData.ts'
+import { Qingdao, Weifang, Dezhou, Yantai } from './mapData.ts'
 
 // 制作区域地图的链接
 // https://www.makeapie.cn/echarts_content/xuxzITMEj6.html
@@ -49,15 +55,14 @@ interface LocalItem {
   name: string
   value: any
 }
-function selectLocalFn(params:LocalItem) {
-  console.log("🚀 ~ file: echartToMap.vue:53 ~ selectLocalFn ~ params:", params)
+
+const option = ref({})
+
+function selectLocalFn(params: LocalItem) {
+  console.log('🚀 ~ file: echartToMap.vue:53 ~ selectLocalFn ~ params:', params)
   location.value = params.value
   echarts.registerMap('map', { features: params.value })
-}
-
-
-const option = computed(() => {
-  return {
+  option.value = {
     tooltip: {
       trigger: 'item',
       backgroundColor: 'rgba(35,90,178,.8)',
@@ -79,7 +84,7 @@ const option = computed(() => {
         layoutSize: '100%',
         label: {
           normal: {
-          // 静态的时候展示样式
+            // 静态的时候展示样式
             show: true, // 是否显示地图省份得名称
             textStyle: {
               color: '#fff',
@@ -88,7 +93,7 @@ const option = computed(() => {
             },
           },
           emphasis: {
-          // 动态展示的样式
+            // 动态展示的样式
             color: '#fff',
           },
         },
@@ -154,7 +159,7 @@ const option = computed(() => {
                   color: '#3348e7',
                 },
               ],
-              false,
+              false
             ),
           },
         },
@@ -174,12 +179,12 @@ const option = computed(() => {
             shadowColor: '#6FFDFF',
             shadowOffsetY: 0,
             shadowBlur: 10,
-          // areaColor: 'rgba(29,85,139,.6)',
+            // areaColor: 'rgba(29,85,139,.6)',
           },
         },
         label: {
           normal: {
-          // 静态的时候展示样式
+            // 静态的时候展示样式
             show: false, // 是否显示地图省份得名称
             textStyle: {
               color: '#fff',
@@ -188,7 +193,7 @@ const option = computed(() => {
             },
           },
           emphasis: {
-          // 动态展示的样式
+            // 动态展示的样式
             show: false,
             color: '#fff',
           },
@@ -250,9 +255,13 @@ const option = computed(() => {
             let res = ''
             const count = params.value ? params.value : 0
             res = `<div class="qwe" style="box-shadow: 0 0 10px #3BD9D9; padding: 10px; position: absolute; top: 0; left:0;border-radius: 4px; border: 1px solid #04b9ff;background: linear-gradient(to bottom, #51bfd4 0%, rgba(35, 90, 178, 0.8) 100%);">
-                    <div style='font-size: 14px;max-width:250px;  overflow: hidden;-o-text-overflow: ellipsis;text-overflow: ellipsis;white-space: nowrap;'>${params.data.name}</div>
+                    <div style='font-size: 14px;max-width:250px;  overflow: hidden;-o-text-overflow: ellipsis;text-overflow: ellipsis;white-space: nowrap;'>${
+                      params.data.name
+                    }</div>
                     <div style="display: flex; align-items: center;padding-top: 6px;"></div>
-                    <div style='max-width:250px;  overflow: hidden;-o-text-overflow: ellipsis;text-overflow: ellipsis;white-space: nowrap;'>地点：${params.data.address ? params.data.address : ''}</div>
+                    <div style='max-width:250px;  overflow: hidden;-o-text-overflow: ellipsis;text-overflow: ellipsis;white-space: nowrap;'>地点：${
+                      params.data.address ? params.data.address : ''
+                    }</div>
                 </div>`
             return res
           },
@@ -287,7 +296,7 @@ const option = computed(() => {
         coordinateSystem: 'geo',
         // zlevel: 3,
         rippleEffect: {
-        // 涟漪特效
+          // 涟漪特效
           period: 5, // 动画时间，值越小速度越快
           // brushType: 'stroke', //波纹绘制方式 stroke, fill
           scale: 11, // 波纹圆环最大限制，值越大波纹越大
@@ -300,7 +309,7 @@ const option = computed(() => {
             shadowBlur: 10,
             shadowColor: 'rgb(58,115,192)',
           },
-        // color: '#F41C19'
+          // color: '#F41C19'
         },
         symbolSize: 15,
         tooltip: {
@@ -313,9 +322,13 @@ const option = computed(() => {
             let res = ''
             const count = params.value ? params.value : 0
             res = `<div class="qwe" style="box-shadow: 0 0 10px #3BD9D9; padding: 10px; position: absolute; top: 0; left:0;border-radius: 4px; border: 1px solid #04b9ff;background: linear-gradient(to bottom, #51bfd4 0%, rgba(35, 90, 178, 0.8) 100%);">
-                    <div style='font-size: 14px;max-width:250px;  overflow: hidden;-o-text-overflow: ellipsis;text-overflow: ellipsis;white-space: nowrap;'>${params.data.name}</div>
+                    <div style='font-size: 14px;max-width:250px;  overflow: hidden;-o-text-overflow: ellipsis;text-overflow: ellipsis;white-space: nowrap;'>${
+                      params.data.name
+                    }</div>
                     <div style="display: flex; align-items: center;padding-top: 6px;"></div>
-                    <div style='max-width:250px;  overflow: hidden;-o-text-overflow: ellipsis;text-overflow: ellipsis;white-space: nowrap;'>地点：${params.data.address ? params.data.address : ''}</div>
+                    <div style='max-width:250px;  overflow: hidden;-o-text-overflow: ellipsis;text-overflow: ellipsis;white-space: nowrap;'>地点：${
+                      params.data.address ? params.data.address : ''
+                    }</div>
                 </div>`
             return res
           },
@@ -334,25 +347,28 @@ const option = computed(() => {
       },
     ],
   }
-})
+}
 
-onMounted(()=>{
+onMounted(() => {
   selectLocalFn(locationList.value[0])
 })
-
 </script>
 
 <style lang="scss" scoped>
-.locationItem{
+.locationItem {
   margin: 0 10px;
   padding: 5px 10px;
   border-radius: 4px;
   background: #0b1b34;
-  box-shadow: 0 0 10px #3BD9D9;
+  box-shadow: 0 0 10px #3bd9d9;
   cursor: pointer;
-  &:hover{
+  &:hover {
     background: #258686;
     color: #fff;
   }
+  
+}
+.active{
+  background: #258686;
 }
 </style>

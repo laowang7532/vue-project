@@ -1,10 +1,9 @@
 <template>
   <div class="content">
     <div class="demoItem w-full h-60px cursor-pointer" v-for="item in list" :key="item.id" @click="gotoFn(item)">
-      <!-- <img class="w-30px" :src="item.icon"> -->
-      <div>{{item.name}}</div>
-      <div>{{item.des}}</div>
-      <div>{{item.date}}</div>
+      <div class="text-16px mb-10px">{{item.name}}</div>
+      <div class="text-12px text-#aaa">{{item.des}}</div>
+      <div class="text-right text-#aaa">—— {{item.date}}</div>
     </div>
   </div>
 </template>
@@ -39,6 +38,6 @@ function gotoFn(params:itemType) {
 <style lang="scss" scoped>
 .content{
   width: 600px;
-  margin: 100px auto;
+  margin: 50px auto;
 }
 </style>
