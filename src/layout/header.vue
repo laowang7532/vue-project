@@ -1,7 +1,7 @@
 <template>
   <div class="p-20px flex-b-c">
     <div class="logo" id="avatar">
-      <img class="w-50px rounded-full" src="../assets/avatar.jpg" />
+      <img class="w-50px rounded-full avatar" src="../assets/avatar.jpg" />
     </div>
     <div class="nav">
       <Nav :nav-list="navList"></Nav>
@@ -27,4 +27,20 @@ const navList =[
 
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.avatar{
+  &:hover{
+    animation: rotate 5s linear infinite;
+  }
+}
+@keyframes rotate{
+  0%{
+    transform: rotate(0deg);
+    animation-timing-function: ease-in;
+  }
+  100%{
+    transform: rotate(360deg);
+    animation-timing-function: linear;
+  }
+}
+</style>

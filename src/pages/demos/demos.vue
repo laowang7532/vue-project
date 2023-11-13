@@ -1,24 +1,30 @@
 <template>
   <div class="content">
-    <div class="demoItem w-full h-60px cursor-pointer" v-for="item in list" :key="item.id" @click="gotoFn(item)">
-      <div class="text-16px mb-10px">{{item.name}}</div>
-      <div class="text-12px text-#aaa">{{item.des}}</div>
-      <div class="text-right text-#aaa">—— {{item.date}}</div>
+    <div
+      class="demoItem w-full h-60px cursor-pointer"
+      v-for="item in list"
+      :key="item.id"
+      :class="{ active: item.active }"
+      @click="gotoFn(item)"
+    >
+      <div class="text-16px mb-10px">{{ item.name }}</div>
+      <div class="text-12px text-#aaa">{{ item.des }}</div>
+      <div class="text-right text-#aaa">—— {{ item.date }}</div>
     </div>
   </div>
 </template>
 
-<script setup lang='ts'>
-import { ref } from "vue";
-import { router } from '@/router/route';
+<script setup lang="ts">
+import { ref } from 'vue'
+import { router } from '@/router/route'
 
 interface itemType {
-  id: number,
-  icon: string,
-  name: string,
+  id: number
+  icon: string
+  name: string
   router: string
+  active: boolean;
 }
-
 const list = ref([
   {
     id: 1,
@@ -26,18 +32,40 @@ const list = ref([
     name: '区域地图Echart',
     des: 'Echart中的地图统计, 以及地图的自定义展示位置',
     date: '2023-8-15',
-    router: '/echartToMap'
-  }
+    router: '/echartToMap',
+    active:false
+  },
+  // {
+  //   id:2,
+
+  // }
 ])
 
-function gotoFn(params:itemType) {
-  router.push(params.router)
+function gotoFn(params: itemType) {
+  params.active = true
+  setTimeout(() => {
+    router.push(params.router)
+  }, 500);
 }
 </script>
 
 <style lang="scss" scoped>
-.content{
+.content {
   width: 600px;
   margin: 50px auto;
+
+  .demoItem {
+    padding: 6px 10px;
+    backdrop-filter: blur(1px);
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.3);
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    &.active{
+      transform: scale(1.1);
+      transition: all 0.5s;
+    }
+  }
 }
 </style>

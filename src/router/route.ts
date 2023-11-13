@@ -3,9 +3,11 @@ import * as VueRouter from 'vue-router'
 import Home from '@/pages/home/index.vue'
 import Demos from '@/pages/demos/demos.vue'
 import EchartToMap from '@/pages/demos/components/echartToMap/echartToMap.vue'
+import Interstellar from '@/pages/musicBg/interstellar.vue'
 
 const routes = [
   { path: '/', component:()=> Home },
+  { path: '/interstellar', component: ()=> Interstellar },
   { path: '/demos', component: ()=> Demos },
   { path: '/echartToMap', component: ()=> EchartToMap },
 ]

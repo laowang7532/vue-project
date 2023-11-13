@@ -3,6 +3,7 @@
   <router-view></router-view>
   <starrySky class="skyBg"></starrySky>
   <musicPlayer />
+  <FixedLeft />
 </template>
 
 <script setup lang="ts">
@@ -11,6 +12,7 @@ import { mySymbol } from '@/units/symbolKeys'
 import Header from '@/layout/header.vue'
 import starrySky from '@/components/background/starrySky.vue'
 import musicPlayer from '@/components/MusicPlayer/musicPlayer.vue'
+import FixedLeft from './layout/fixedLeft.vue'
 
 /**
  * 如果不是setup 语法糖的话  要确保在setup同步执行

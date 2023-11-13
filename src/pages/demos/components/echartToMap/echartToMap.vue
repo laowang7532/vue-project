@@ -358,17 +358,17 @@ onMounted(() => {
 .locationItem {
   margin: 0 10px;
   padding: 5px 10px;
-  border-radius: 4px;
+  border-radius: 2px;
   background: #0b1b34;
-  box-shadow: 0 0 10px #3bd9d9;
+  box-shadow: 0 0 4px #3bd9d9;
   cursor: pointer;
   &:hover {
-    background: #258686;
+    background: rgba(73, 202, 219, 0.747);
     color: #fff;
   }
   
 }
 .active{
-  background: #258686;
+  background: rgba(73, 202, 219, 0.747);
 }
 </style>
