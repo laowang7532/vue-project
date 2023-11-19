@@ -10,6 +10,7 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false"
   },
   "dependencies": {
+    "@arcgis/core": "^4.28.10",
     "@vueuse/core": "^10.3.0",
     "canvas-nest.js": "^2.0.4",
     "echarts": "^5.4.3",
@@ -17,6 +18,8 @@
     "vue-router": "4"
   },
   "devDependencies": {
+    "@anthony-ju/eslint-config": "^0.2.2",
+    "@anthony-ju/stylelint-config": "^0.2.2",
     "@tsconfig/node18": "^2.0.1",
     "@types/node": "^18.16.8",
     "@vitejs/plugin-vue": "^4.2.3",
