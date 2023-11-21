@@ -1,15 +1,17 @@
 <template>
   <div class="content">
     <div
-      class="demoItem w-full h-60px cursor-pointer"
+      class="demoItem w-full h-60px cursor-pointer my-8px"
       v-for="item in list"
       :key="item.id"
       :class="{ active: item.active }"
       @click="gotoFn(item)"
     >
       <div class="text-16px mb-10px">{{ item.name }}</div>
-      <div class="text-12px text-#aaa">{{ item.des }}</div>
-      <div class="text-right text-#aaa">—— {{ item.date }}</div>
+      <div class="flex justify-between items-center">
+        <div class="text-12px text-#aaa">{{ item.des }}</div>
+        <div class="text-right text-#aaa">—— {{ item.date }}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -33,6 +35,15 @@ const list = ref([
     des: 'Echart中的地图统计, 以及地图的自定义展示位置',
     date: '2023-8-15',
     router: '/echartToMap',
+    active:false
+  },
+  {
+    id: 2,
+    // icon: '@/assets/spaceShip.svg',
+    name: '地图点位聚合功能',
+    des: '地图点位聚合,让地图的点位不再因缩小而密密麻麻',
+    date: '2023-11-21',
+    router: '/pointCluster',
     active:false
   },
   // {
