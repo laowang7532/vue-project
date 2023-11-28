@@ -4,12 +4,14 @@ import Home from '@/pages/home/index.vue'
 import Demos from '@/pages/demos/demos.vue'
 import EchartToMap from '@/pages/demos/components/echartToMap/echartToMap.vue'
 import Interstellar from '@/pages/musicBg/interstellar.vue'
+import PointCluster from '@/pages/demos/components/pointCluster/pointCluster.vue'
 
 const routes = [
   { path: '/', component:()=> Home },
   { path: '/interstellar', component: ()=> Interstellar },
   { path: '/demos', component: ()=> Demos },
   { path: '/echartToMap', component: ()=> EchartToMap },
+  { path: '/pointCluster', component: ()=> PointCluster },
 ]
 
 // 3. 创建路由实例并传递 `routes` 配置

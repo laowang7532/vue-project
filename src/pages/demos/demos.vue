@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <div
-      class="demoItem w-full h-60px cursor-pointer"
+      class="demoItem w-full cursor-pointer my-10px"
       v-for="item in list"
       :key="item.id"
       :class="{ active: item.active }"
@@ -20,10 +20,10 @@ import { router } from '@/router/route'
 
 interface itemType {
   id: number
-  icon: string
+  icon?: string
   name: string
   router: string
-  active: boolean;
+  active: boolean
 }
 const list = ref([
   {
@@ -33,19 +33,23 @@ const list = ref([
     des: 'Echart中的地图统计, 以及地图的自定义展示位置',
     date: '2023-8-15',
     router: '/echartToMap',
-    active:false
+    active: false,
   },
-  // {
-  //   id:2,
-
-  // }
+  {
+    id: 2,
+    name: 'arcgis点聚合',
+    des: '用FeatureLayer实现点聚合',
+    date: '2023-11-20',
+    router: '/pointCluster',
+    active: false,
+  },
 ])
 
 function gotoFn(params: itemType) {
   params.active = true
   setTimeout(() => {
     router.push(params.router)
-  }, 500);
+  }, 500)
 }
 </script>
 
@@ -62,7 +66,7 @@ function gotoFn(params: itemType) {
     &:hover {
       background-color: rgba(255, 255, 255, 0.2);
     }
-    &.active{
+    &.active {
       transform: scale(1.1);
       transition: all 0.5s;
     }
