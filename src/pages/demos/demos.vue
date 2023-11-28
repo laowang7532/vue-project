@@ -8,8 +8,10 @@
       @click="gotoFn(item)"
     >
       <div class="text-16px mb-10px">{{ item.name }}</div>
-      <div class="text-12px text-#aaa">{{ item.des }}</div>
-      <div class="text-right text-#aaa">—— {{ item.date }}</div>
+      <div class="flex justify-between items-center">
+        <div class="text-12px text-#aaa">{{ item.des }}</div>
+        <div class="text-right text-#aaa">—— {{ item.date }}</div>
+      </div>
     </div>
   </div>
 </template>
