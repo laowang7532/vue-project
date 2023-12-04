@@ -5,6 +5,7 @@ import Demos from '@/pages/demos/demos.vue'
 import EchartToMap from '@/pages/demos/components/echartToMap/echartToMap.vue'
 import Interstellar from '@/pages/musicBg/interstellar.vue'
 import PointCluster from '@/pages/demos/components/pointCluster/pointCluster.vue'
+import AsyncData from '@/pages/demos/components/asyncData/asyncData.vue'
 
 const routes = [
   { path: '/', component:()=> Home },
@@ -12,6 +13,7 @@ const routes = [
   { path: '/demos', component: ()=> Demos },
   { path: '/echartToMap', component: ()=> EchartToMap },
   { path: '/pointCluster', component: ()=> PointCluster },
+  { path: '/asyncData', component: ()=> AsyncData },
 ]
 
 // 3. 创建路由实例并传递 `routes` 配置

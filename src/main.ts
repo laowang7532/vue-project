@@ -14,6 +14,10 @@ import './styles/index.scss'
 // 1. 创建应用实例
 const app = createApp(App)
 
+// 引入拖拽组件
+import Vue3DraggableResizable from 'vue3-draggable-resizable'
+import 'vue3-draggable-resizable/dist/Vue3DraggableResizable.css'
+app.use(Vue3DraggableResizable)
 
 // 提供应用配置
 app.config.errorHandler = (err, vm, info) => {

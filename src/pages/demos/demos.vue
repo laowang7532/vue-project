@@ -45,6 +45,14 @@ const list = ref([
     router: '/pointCluster',
     active: false,
   },
+  {
+    id: 3,
+    name: '循环请求数据并返回处理数组',
+    des: '在循环中请求数据, 并返回处理后的数组',
+    date: '2023-12-4',
+    router: '/asyncData',
+    active: false,
+  },
 ])
 
 function gotoFn(params: itemType) {
