@@ -61,6 +61,14 @@ const list = ref([
     router: '/dragAndReSize',
     active: false,
   },
+  {
+    id: 5,
+    name: 'vue3生命周期',
+    des: 'vue3生命周期的使用，页面的生命周期，以及组件的生命周期',
+    date: '2023-12-6',
+    router: '/lifeCycle',
+    active: false,
+  },
 
 ])
 
