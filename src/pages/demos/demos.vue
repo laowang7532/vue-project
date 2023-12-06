@@ -53,6 +53,15 @@ const list = ref([
     router: '/asyncData',
     active: false,
   },
+  {
+    id: 4,
+    name: 'vue3拖拽和缩放的插件',
+    des: '能够控制元素的拖拽和缩放, 并且可以控制缩放的方向',
+    date: '2023-12-6',
+    router: '/dragAndReSize',
+    active: false,
+  },
+
 ])
 
 function gotoFn(params: itemType) {

@@ -6,14 +6,18 @@ import EchartToMap from '@/pages/demos/components/echartToMap/echartToMap.vue'
 import Interstellar from '@/pages/musicBg/interstellar.vue'
 import PointCluster from '@/pages/demos/components/pointCluster/pointCluster.vue'
 import AsyncData from '@/pages/demos/components/asyncData/asyncData.vue'
+import DragAndReSize from '@/pages/demos/components/dragAndReSize/dragAndReSize.vue'
+import LifeCycle from '@/pages/demos/components/lifeCycle/lifeCycle.vue'
 
 const routes = [
-  { path: '/', component:()=> Home },
-  { path: '/interstellar', component: ()=> Interstellar },
-  { path: '/demos', component: ()=> Demos },
-  { path: '/echartToMap', component: ()=> EchartToMap },
-  { path: '/pointCluster', component: ()=> PointCluster },
-  { path: '/asyncData', component: ()=> AsyncData },
+  { path: '/', component: () => Home },
+  { path: '/interstellar', component: () => Interstellar },
+  { path: '/demos', component: () => Demos },
+  { path: '/echartToMap', component: () => EchartToMap },
+  { path: '/pointCluster', component: () => PointCluster },
+  { path: '/asyncData', component: () => AsyncData },
+  { path: '/dragAndReSize', component: () => DragAndReSize },
+  { path: '/lifeCycle', component: () => LifeCycle },
 ]
 
 // 3. 创建路由实例并传递 `routes` 配置
