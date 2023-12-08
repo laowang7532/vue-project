@@ -69,7 +69,14 @@ const list = ref([
     router: '/lifeCycle',
     active: false,
   },
-
+  {
+    id: 6,
+    name: 'echarts动画',
+    des: 'echarts动画的使用，以及echarts的基本使用',
+    date: '2023-12-8',
+    router: '/echartAnimation',
+    active: false,
+  },
 ])
 
 function gotoFn(params: itemType) {

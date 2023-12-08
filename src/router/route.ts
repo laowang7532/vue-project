@@ -8,6 +8,7 @@ import PointCluster from '@/pages/demos/components/pointCluster/pointCluster.vue
 import AsyncData from '@/pages/demos/components/asyncData/asyncData.vue'
 import DragAndReSize from '@/pages/demos/components/dragAndReSize/dragAndReSize.vue'
 import LifeCycle from '@/pages/demos/components/lifeCycle/lifeCycle.vue'
+import EchartAnimation from '@/pages/demos/components/echartAnimation/echartAnimation.vue'
 
 const routes = [
   { path: '/', component: () => Home },
@@ -18,6 +19,7 @@ const routes = [
   { path: '/asyncData', component: () => AsyncData },
   { path: '/dragAndReSize', component: () => DragAndReSize },
   { path: '/lifeCycle', component: () => LifeCycle },
+  { path: '/echartAnimation', component: () => EchartAnimation },
 ]
 
 // 3. 创建路由实例并传递 `routes` 配置
