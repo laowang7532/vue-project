@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, provide } from 'vue'
+import { inject, provide,defineProps } from 'vue'
 import { mySymbol } from '@/units/symbolKeys';
 
 const { msg:message, msgAdd } = inject<any>('message')

@@ -1,14 +1,15 @@
 <template>
-  <div class="w-full h-full flex-center">
-    <div>echarts</div>
-    <div id="echarts" class="w-600px h-300px"></div>
+  <div class="w-full h-full">
+    <div class="w-full text-center">echarts animation</div>
+    <div id="echarts" class="w-600px h-300px mx-auto mt-50px"></div>
   </div>
 </template>
 <script setup lang="ts">
 import * as echarts from 'echarts'
-import { ref, reactive, onMounted } from 'vue'
+import { ref, reactive, onMounted, nextTick } from 'vue'
 
-let myChart = reactive()
+let myChart = reactive<any>(null)
+
 const echartsData = [
   { value: 40, name: 'rose 1' },
   { value: 38, name: 'rose 2' },
@@ -113,7 +114,7 @@ const option = {
         show: true,
         position: 'outside',
         fontSize: 16,
-        formatter: (params) => {
+        formatter: (params: any) => {
           return `{a|${params.name}}`
         },
         rich: {
@@ -139,12 +140,12 @@ const option = {
   ],
 }
 
-function handleChartLoop(option, myChart) {
+function handleChartLoop(option: any, myChart: any, time: number = 1500) {
   if (!myChart) {
     return
   }
   let currentIndex = -1 // 当前高亮图形在饼图数据中的下标
-  let changePieInterval = setInterval(selectPie, 1500) // 设置自动切换高亮图形的定时器
+  let changePieInterval = setInterval(selectPie, time) // 设置自动切换高亮图形的定时器
   // 取消所有高亮并高亮当前图形
   function highlightPie() {
     // 遍历饼图数据，取消所有图形的高亮效果
@@ -169,17 +170,17 @@ function handleChartLoop(option, myChart) {
     })
   }
   // 用户鼠标悬浮到某一图形时，停止自动切换并高亮鼠标悬浮的图形
-  myChart.on('mouseover', (params) => {
+  myChart.on('mouseover', (params: any) => {
     clearInterval(changePieInterval)
     currentIndex = params.dataIndex
     highlightPie()
   })
   // 用户鼠标移出时，重新开始自动切换
-  myChart.on('mouseout', (params) => {
+  myChart.on('mouseout', (params: any) => {
     if (changePieInterval) {
       clearInterval(changePieInterval)
     }
-    changePieInterval = setInterval(selectPie, 1500)
+    changePieInterval = setInterval(selectPie, time)
   })
   // 高亮效果切换到下一个图形
   function selectPie() {
@@ -191,8 +192,11 @@ function handleChartLoop(option, myChart) {
 
 onMounted(() => {
   myChart = echarts.init(document.getElementById('echarts'))
-  console.log('🚀 ~ file: echartAnimation.vue:175 ~ onMounted ~ myChart:', myChart)
   myChart.setOption(option)
+  // 拿到当前的option
+  // nextTick(() => {
+  //   handleChartLoop(myChart._model.option, myChart)
+  // })
   handleChartLoop(option, myChart)
 })
 </script>
