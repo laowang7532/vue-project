@@ -9,6 +9,7 @@ import AsyncData from '@/pages/demos/components/asyncData/asyncData.vue'
 import DragAndReSize from '@/pages/demos/components/dragAndReSize/dragAndReSize.vue'
 import LifeCycle from '@/pages/demos/components/lifeCycle/lifeCycle.vue'
 import EchartAnimation from '@/pages/demos/components/echartAnimation/echartAnimation.vue'
+import MouseEvent from '@/pages/demos/components/mouseEvent/mouseEvent.vue'
 
 const routes = [
   { path: '/', component: () => Home },
@@ -20,6 +21,7 @@ const routes = [
   { path: '/dragAndReSize', component: () => DragAndReSize },
   { path: '/lifeCycle', component: () => LifeCycle },
   { path: '/echartAnimation', component: () => EchartAnimation },
+  { path: '/mouseEvent', component: () => MouseEvent },
 ]
 
 // 3. 创建路由实例并传递 `routes` 配置

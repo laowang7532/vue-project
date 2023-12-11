@@ -77,6 +77,14 @@ const list = ref([
     router: '/echartAnimation',
     active: false,
   },
+  {
+    id: 7,
+    name: '鼠标事件逻辑——抬起按下',
+    des: '设备云台控制的鼠标事件应用场景',
+    date: '2023-12-11',
+    router: '/mouseEvent',
+    active: false,
+  },
 ])
 
 function gotoFn(params: itemType) {
