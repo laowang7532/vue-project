@@ -12,6 +12,7 @@
   "dependencies": {
     "@arcgis/core": "^4.28.10",
     "@vueuse/core": "^10.3.0",
+    "axios": "^1.6.2",
     "canvas-nest.js": "^2.0.4",
     "echarts": "^5.4.3",
     "vue": "^3.3.2",

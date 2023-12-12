@@ -85,6 +85,14 @@ const list = ref([
     router: '/mouseEvent',
     active: false,
   },
+  {
+    id: 8,
+    name: 'axios请求取消',
+    des: 'axios请求取消',
+    date: '2023-12-12',
+    router: '/requestCancel',
+    active: false,
+  },
 ])
 
 function gotoFn(params: itemType) {
