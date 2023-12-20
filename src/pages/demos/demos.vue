@@ -93,6 +93,14 @@ const list = ref([
     router: '/requestCancel',
     active: false,
   },
+  {
+    id: 9,
+    name: 'flex布局',
+    des: 'flex布局 每个属性的使用方法',
+    date: '2023-12-19',
+    router: '/flexDiv',
+    active: false,
+  },
 ])
 
 function gotoFn(params: itemType) {

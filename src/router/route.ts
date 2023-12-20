@@ -11,6 +11,7 @@ import LifeCycle from '@/pages/demos/components/lifeCycle/lifeCycle.vue'
 import EchartAnimation from '@/pages/demos/components/echartAnimation/echartAnimation.vue'
 import MouseEvent from '@/pages/demos/components/mouseEvent/mouseEvent.vue'
 import RequestCancel from '@/pages/demos/components/requestCancel/requestCancel.vue'
+import FlexDiv from '@/pages/demos/components/flexDiv/flexDiv.vue'
 
 const routes = [
   { path: '/', component: () => Home },
@@ -24,6 +25,7 @@ const routes = [
   { path: '/echartAnimation', component: () => EchartAnimation },
   { path: '/mouseEvent', component: () => MouseEvent },
   { path: '/requestCancel', component: () => RequestCancel },
+  { path: '/flexDiv', component: () => FlexDiv },
 ]
 
 // 3. 创建路由实例并传递 `routes` 配置
