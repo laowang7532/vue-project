@@ -56,6 +56,72 @@
         <div class="wBox">3</div>
         <div class="wBox">4</div>
         <div class="wBox">5</div>
+        <div class="wBox">6</div>
+        <div class="wBox">7</div>
+        <div class="wBox">8</div>
+      </div>
+    </div>
+
+    <div>
+      <div>示例：order属性</div>
+      <div class="flex flex-wrap">
+        <div class="wBox order-1">1</div>
+        <div class="wBox -order-1">-1</div>
+        <div class="wBox order-2">2</div>
+        <div class="wBox -order-2">-2</div>
+        <div class="wBox order-3">3</div>
+        <div class="wBox order-4">4</div>
+        <div class="wBox order-5">5</div>
+        <div class="wBox order-6">6</div>
+      </div>
+    </div>
+
+    <div>
+      <div>示例：flex-grow属性</div>
+      <div class="flex">
+        <!-- <div class="wBox grow-0">grow-0</div> -->
+        <div class="wBox grow-1">grow-1</div>
+        <div class="wBox grow-1">grow-1</div>
+        <div class="wBox grow-1">grow-1</div>
+        <div class="wBox grow-1">grow-1</div>
+        <div class="wBox grow-1">grow-1</div>
+        <!-- <div class="wBox grow-2">grow-2</div>
+        <div class="wBox grow-1">grow-1</div> -->
+      </div>
+    </div>
+
+    <div>
+      <div>示例：flex-shrink属性</div>
+      <div class="flex">
+        <!-- <div class="wBox grow-0">grow-0</div> -->
+        <div class="wBox shrink-1">shrink--1</div>
+        <div class="wBox shrink-1">shrink--1</div>
+        <div class="wBox shrink-2">shrink--2</div>
+        <div class="wBox shrink-0">shrink--0</div>
+        <div class="wBox shrink-1">shrink--1</div>
+        <div class="wBox shrink-1">shrink--1</div>
+        <div class="wBox shrink-1">shrink--1</div>
+        <!-- <div class="wBox grow-2">grow-2</div>
+        <div class="wBox grow-1">grow-1</div> -->
+      </div>
+    </div>
+
+    <div>
+      <div>示例：项目flex属性</div>
+      <div class="flex">
+        <div class="wBox flexClass">flexxxxxxx-none</div>
+        <div class="wBox flexClass">flex弹性盒</div>
+        <div class="wBox flexClass">flex-none</div>
+        <div class="wBox flexClass">flex-none</div>
+      </div>
+    </div>
+    <div>
+      <div>示例：项目align-self属性</div>
+      <div class="flex h-400px justify-start items-start">
+        <div class="wBox">flex弹性盒</div>
+        <div class="wBox">flex弹性盒</div>
+        <div class="wBox alignSelfClass">特例</div>
+        <div class="wBox">flex弹性盒</div>
       </div>
     </div>
 
@@ -89,8 +155,9 @@
 }
 
 .alignContentBox{
-  display: flex;
-  align-content: space-around;
+  height: 500px;
+  border: 1px dashed #fff;
+  align-content: flex-start;
 }
 .wBox {
   width: 300px;
@@ -99,5 +166,11 @@
   background-color: #fff;
   color: #000;
   margin: 10px;
+}
+.flexClass{
+  flex: auto;
+}
+.alignSelfClass{
+  align-self: flex-end;
 }
 </style>
