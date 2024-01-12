@@ -6,8 +6,14 @@ window.systemConfig = {
   // 天地图瓦片服务地址
   tdtBaseUrl: [
     'http://t0.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&tk=b1c9c52877e24d1599b3c08cd062236d',
-    'http://t0.tianditu.gov.cn/vec_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=vec&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&tk=b1c9c52877e24d1599b3c08cd062236d'
+    'http://t0.tianditu.gov.cn/vec_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=vec&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&tk=b1c9c52877e24d1599b3c08cd062236d',
   ],
+  // 天地图注记服务地址
+  tdtBaseLabelUrl: [
+    'http://t0.tianditu.gov.cn/cva_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=cva&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&tk=b1c9c52877e24d1599b3c08cd062236d'
+  ],
+  // 地图相关配置 缩放级别
+  minZoom: 10,
 
   // 小伙伴地址信息
   partnerInfoList: [

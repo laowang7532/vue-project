@@ -3,6 +3,10 @@ import Basemap from '@arcgis/core/Basemap'
 import BaseTileLayer from "@arcgis/core/layers/BaseTileLayer.js";
 import MapView from "@arcgis/core/views/MapView.js";
 import GraphicsLayer from '@arcgis/core/layers/GraphicsLayer'
+import { useEventBus } from "@vueuse/core";
+import ScaleBar from '@arcgis/core/widgets/ScaleBar'
+import Zoom from '@arcgis/core/widgets/Zoom'
+import TileLayer from "@arcgis/core/layers/TileLayer.js";
 
 /**
  * 创建地图对象
@@ -13,6 +17,19 @@ import GraphicsLayer from '@arcgis/core/layers/GraphicsLayer'
  */
 export function createMap(mapDiv: string, isTdt:boolean = true, options?:any) {
   const baseMaps: Basemap[] = [];
+  // 标注图层
+  const baseLabelMapItem = BaseTileLayer.createSubclass({
+    properties: {
+      urlTemplate:window.systemConfig.tdtBaseLabelUrl[0],
+    },
+
+   getTileUrl: function (level:any, row:any, col:any) {
+     return this.urlTemplate.replace("{z}", level).replace("{x}", col).replace("{y}", row);
+   }
+  });
+  // 标注图层
+  const baseLabelMapObj = new baseLabelMapItem();
+
   if(isTdt){
     window.systemConfig.tdtBaseUrl.forEach((item:string) => {
       // @ts-expect-error
@@ -25,11 +42,13 @@ export function createMap(mapDiv: string, isTdt:boolean = true, options?:any) {
          return this.urlTemplate.replace("{z}", level).replace("{x}", col).replace("{y}", row);
        }
       });
+      // 底图
       const baseMapItemObj = new baseMapItem();
-      baseMaps.push(new Basemap({baseLayers:[baseMapItemObj],title:item}))
+      
+      baseMaps.push(new Basemap({baseLayers:[baseMapItemObj, baseLabelMapObj],title:item}))
     });
   }else{
-    
+    // TODO：需要arcgis服务升成链接... 后续再说
   }
   const GisMap = new Map({ basemap: baseMaps[0]});
   const view = new MapView({
@@ -37,15 +56,43 @@ export function createMap(mapDiv: string, isTdt:boolean = true, options?:any) {
     map: GisMap,
     center: options?.center || [120.45, 36.13],
     zoom: options?.zoom || 12,
+    constraints: {
+      rotationEnabled: false,
+      minZoom: window.systemConfig.minZoom,
+      maxZoom: window.systemConfig.useTdt ? 18 : 20,
+    },
+    // 本身不携带任何工具 例如地图下方描述、比例尺等
+    ui: {
+      components: [],
+    },
   });
 
   view.when(()=>{
     view.on('click',(e)=>{
       view.hitTest(e).then((res:any) => {
-        console.log('🚀 ~ res:', res)
+        if(res.results.length > 0){
+          const graphic = res.results[0].graphic
+          switch (graphic.attributes.type) {
+            case 'partner':
+              const partnerInfo = useEventBus<any>('partnerInfo')
+              partnerInfo.emit({info:graphic.attributes})
+              break;
+            default:
+              break;
+          }
+        }
       })
     })
   })
+
+  if (document.getElementById(options.zoomBarId)?.childNodes.length === 0) {
+    const zoom = new Zoom({ view, container: options.zoomBarId })
+    view.ui.add(zoom, { position: 'bottom-right' })
+  }
+  if (document.getElementById(options.scaleBarId)?.childNodes.length === 0) {
+    const scaleBar = new ScaleBar({ container: options.scaleBarId, view, unit: 'metric' })
+    view.ui.add(scaleBar, { position: 'bottom-right' })
+  }
 
   // 伙伴图层
   const partnerLayer = new GraphicsLayer()
@@ -74,7 +121,7 @@ export function createMap(mapDiv: string, isTdt:boolean = true, options?:any) {
     GisMap,
     view,
     changeBaseMap,
-    partnerLayer
+    partnerLayer,
   }
 }
 
