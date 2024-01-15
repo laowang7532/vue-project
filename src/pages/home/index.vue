@@ -1,5 +1,5 @@
 <template>
-  <div id="map" class="content"/>
+  <div id="map" class="content" />
   <div id="scaleBar" :style="scaleBarStyle" />
   <div id="zoomBar" :style="zoomBarStyle" />
   <div class="tools">
@@ -9,29 +9,29 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, toRaw,computed } from 'vue'
-import { createMap } from '@/units/tools/mapTools'
+import { computed, onMounted, ref, toRaw } from 'vue'
 import PictureMarkerSymbol from '@arcgis/core/symbols/PictureMarkerSymbol'
 import Graphic from '@arcgis/core/Graphic'
-import Point from '@arcgis/core/geometry/Point';
-import { useEventBus } from "@vueuse/core";
+import Point from '@arcgis/core/geometry/Point'
+import { useEventBus } from '@vueuse/core'
+import { createMap } from '@/units/tools/mapTools'
 
 const mapObj = ref()
-function changeFn(){
+function changeFn() {
   mapObj.value.changeBaseMap()
 }
 
 // 打点
-function pointToMapFn(){
+function pointToMapFn() {
   const arr = window.systemConfig.partnerInfoList
-  arr.forEach((item:any) => {
-     const point = new Graphic({
+  arr.forEach((item: any) => {
+    const point = new Graphic({
       geometry: new Point({
         longitude: item.position[0],
         latitude: item.position[1],
         spatialReference: {
-          wkid: 4326
-        }
+          wkid: 4326,
+        },
       }),
       symbol: new PictureMarkerSymbol({
         url: item.avatar,
@@ -40,14 +40,14 @@ function pointToMapFn(){
         yoffset: -15,
       }),
       attributes: {
-        type:'partner',
+        type: 'partner',
         name: item.name,
         address: item.address,
-        phone: item.phone
-      }
+        phone: item.phone,
+      },
     })
     toRaw(mapObj.value.partnerLayer).add(point)
-  });
+  })
 }
 
 const scaleBarStyle = computed(() => {
@@ -66,12 +66,12 @@ const zoomBarStyle = computed(() => {
 // 监听小伙伴信息
 const partnerInfo = useEventBus<string>('partnerInfo')
 
-partnerInfo.on((data:any) => {
+partnerInfo.on((data: any) => {
   console.log('🚀 ~ data:', data)
 })
 
 onMounted(() => {
-  mapObj.value = createMap('map',true,{zoomBarId:'zoomBar',scaleBarId:'scaleBar'})
+  mapObj.value = createMap('map', true, { zoomBarId: 'zoomBar', scaleBarId: 'scaleBar' })
   console.log('🚀 ~ mapObj.value:', mapObj.value)
 })
 </script>
@@ -82,21 +82,23 @@ onMounted(() => {
   height: 100%;
 }
 
-.tools{
+.tools {
   position: fixed;
   top: 100px;
   right: 20px;
   z-index: 999;
-  .cursor-pointer{
+
+  .cursor-pointer {
     margin-bottom: 10px;
     cursor: pointer;
-    &:hover{
+
+    &:hover {
       color: #409eff;
     }
   }
 }
 
-.esri-view{
+.esri-view {
   --esri-view-outline-color: transparent;
 }
 </style>
