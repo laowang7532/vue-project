@@ -1,14 +1,14 @@
 <template>
   <div class="content">
     <div
-      class="demoItem w-full cursor-pointer my-10px"
       v-for="item in list"
       :key="item.id"
+      class="demoItem my-10px w-full cursor-pointer"
       :class="{ active: item.active }"
       @click="gotoFn(item)"
     >
-      <div class="text-16px mb-10px">{{ item.name }}</div>
-      <div class="flex justify-between items-center">
+      <div class="mb-10px text-16px">{{ item.name }}</div>
+      <div class="flex items-center justify-between">
         <div class="text-12px text-#aaa">{{ item.des }}</div>
         <div class="text-right text-#aaa">—— {{ item.date }}</div>
       </div>
@@ -101,6 +101,14 @@ const list = ref([
     router: '/flexDiv',
     active: false,
   },
+  {
+    id: 10,
+    name: 'vue-chart图表',
+    des: '测试vue-chart图表的svg和canvas的渲染方法',
+    date: '2024-01-23',
+    router: '/vCharts',
+    active: false,
+  },
 ])
 
 function gotoFn(params: itemType) {
@@ -118,15 +126,17 @@ function gotoFn(params: itemType) {
 
   .demoItem {
     padding: 6px 10px;
+    background-color: rgb(255 255 255 / 30%);
     backdrop-filter: blur(1px);
     border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.3);
+
     &:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+      background-color: rgb(255 255 255 / 20%);
     }
+
     &.active {
-      transform: scale(1.1);
       transition: all 0.5s;
+      transform: scale(1.1);
     }
   }
 }

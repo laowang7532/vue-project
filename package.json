@@ -1,8 +1,8 @@
 {
   "name": "vue-project",
+  "type": "module",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
@@ -17,7 +17,8 @@
     "canvas-nest.js": "^2.0.4",
     "echarts": "^5.4.3",
     "element-plus": "^2.5.0",
-    "vue": "^3.3.2",
+    "vue": "^3.3.11",
+    "vue-echarts": "^6.6.8",
     "vue-router": "4",
     "vue3-draggable-resizable": "^1.6.5"
   },
@@ -28,7 +29,7 @@
     "@tsconfig/node18": "^2.0.1",
     "@types/node": "^18.16.8",
     "@unocss/eslint-config": "^0.58.3",
-    "@vitejs/plugin-vue": "^4.2.3",
+    "@vitejs/plugin-vue": "^4.5.2",
     "@vue/tsconfig": "^0.4.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^8.56.0",
@@ -38,7 +39,7 @@
     "stylelint": "^16.1.0",
     "typescript": "~5.0.4",
     "unocss": "^0.54.2",
-    "vite": "^4.3.5",
+    "vite": "^5.0.8",
     "vue-tsc": "^1.6.4"
   }
 }
