@@ -3,13 +3,13 @@
     <div
       v-for="item in list"
       :key="item.id"
-      class="demoItem my-10px w-full cursor-pointer"
+      class="cursor-pointer my-10px w-full demoItem"
       :class="{ active: item.active }"
       @click="gotoFn(item)"
     >
       <div class="mb-10px text-16px">{{ item.name }}</div>
       <div class="flex items-center justify-between">
-        <div class="text-12px text-#aaa">{{ item.des }}</div>
+        <div class="text-#aaa text-12px">{{ item.des }}</div>
         <div class="text-right text-#aaa">—— {{ item.date }}</div>
       </div>
     </div>
@@ -107,6 +107,14 @@ const list = ref([
     des: '测试vue-chart图表的svg和canvas的渲染方法',
     date: '2024-01-23',
     router: '/vCharts',
+    active: false,
+  },
+  {
+    id: 11,
+    name: 'canvas 基本使用',
+    des: '使用canvas绘制图片并绘制图形，最后导出图片地址',
+    date: '2024-03-26',
+    router: '/Canvas',
     active: false,
   },
 ])

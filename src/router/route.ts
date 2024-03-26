@@ -13,6 +13,8 @@ import MouseEvent from '@/pages/demos/components/mouseEvent/mouseEvent.vue'
 import RequestCancel from '@/pages/demos/components/requestCancel/requestCancel.vue'
 import FlexDiv from '@/pages/demos/components/flexDiv/flexDiv.vue'
 import VCharts from '@/pages/demos/components/vCharts/vCharts.vue'
+import Canvas from '@/pages/demos/components/Canvas/Canvas.vue'
+
 
 const routes = [
   { path: '/', component: () => Home },
@@ -28,6 +30,7 @@ const routes = [
   { path: '/requestCancel', component: () => RequestCancel },
   { path: '/flexDiv', component: () => FlexDiv },
   { path: '/vCharts', component: () => VCharts },
+  { path: '/Canvas', component: () => Canvas },
 ]
 
 // 3. 创建路由实例并传递 `routes` 配置
